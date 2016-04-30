@@ -10,4 +10,8 @@ export class GettingStartedPage {
     constructor() {
         
     }
+    
+    onSwipe (dir) {
+        console.log(dir);
+    }
 }
