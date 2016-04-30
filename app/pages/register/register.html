@@ -1,0 +1,28 @@
+
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="close"></ion-icon>
+  </button>
+  <ion-title>Register</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="register">
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [model]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" [model]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Github</ion-label>
+            <ion-input type="text" [(ngModel)]="github" (ngModelChange)="searchGithub(github)" class="github"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button block>Sign In</button>
+    </div>
+</ion-content>
