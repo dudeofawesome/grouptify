@@ -1,0 +1,13 @@
+<ion-card (touchstart)="dragStart($event); mouseDown = true;" (touchmove)="dragging($event)" (touchend)="dragStop($event); mouseDown = false;">
+    <img src="img/nin-live.png"/>
+    <ion-card-content>
+        <ion-card-title>
+            {{name}}
+        </ion-card-title>
+        <div>
+            <div *ngFor="#req of lookingFor">
+                {{req}}
+            </div>
+        </div>
+    </ion-card-content>
+</ion-card>
