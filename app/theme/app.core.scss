@@ -9,5 +9,14 @@
 
 @import "../pages/getting-started/getting-started";
 @import "../pages/list/list";
+@import "../pages/register/register";
 
 @import "../components/swipe-card/swipe-card";
+@import "../components/chip/chip";
+
+.chips {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}

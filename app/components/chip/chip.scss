@@ -1,0 +1,19 @@
+chip {
+    position: relative;
+    height: 30px;
+    margin: 2.5px;
+    padding: 5px 15px;
+    padding-right: 40px;
+    border-radius: 15px;
+    display: inline-block;
+    background-color: rgb(200, 200, 200);
+    
+    .button {
+        // position: relative;
+        // top: -6px;
+        // left: -8px;
+        position: absolute;
+        top: -6px;
+        right: 0px;
+    }
+}

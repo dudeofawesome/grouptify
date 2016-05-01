@@ -1,8 +1,5 @@
 
 <ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="close"></ion-icon>
-  </button>
   <ion-title>Register</ion-title>
 </ion-navbar>
 
@@ -11,18 +8,27 @@
     <ion-list>
         <ion-item>
             <ion-label floating>Name</ion-label>
-            <ion-input type="text" [model]="name"></ion-input>
+            <ion-input type="text" [model]="name" required autofocus></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input type="email" [model]="email"></ion-input>
+            <ion-input type="email" [model]="email" required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Github</ion-label>
             <ion-input type="text" [(ngModel)]="github" (ngModelChange)="searchGithub(github)" class="github"></ion-input>
         </ion-item>
+        <ion-label>Skills</ion-label>
+        <div class="chips">
+            <chip *ngFor="#language of languages; #i=index" [text]="language.language" (removed)="removeSkill(i)"></chip>
+            <div class="add-skill">
+                <button (click)="defineSkill()" clear light>
+                    <ion-icon name='add'></ion-icon>
+                </button>
+            </div>
+        </div>
     </ion-list>
     <div padding>
-        <button block>Sign In</button>
+        <button (click)="createAccount()" block>Sign In</button>
     </div>
 </ion-content>

@@ -14,7 +14,7 @@ import {GrouptifyService} from "./models/GrouptifyService";
   providers: [GrouptifyService]
 })
 class MyApp {
-  rootPage: any = GettingStartedPage;
+  rootPage: any = RegisterPage;
   pages: Array<{title: string, component: any}>
 
   constructor(private app: IonicApp, private platform: Platform/*, grouptifyService: GrouptifyService*/) {
@@ -35,7 +35,6 @@ class MyApp {
       StatusBar.styleDefault();
 
       // GrouptifyService.authenticate();
-        this.rootPage = RegisterPage;
     });
   }
 

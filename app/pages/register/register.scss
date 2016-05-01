@@ -2,4 +2,18 @@
     input.github::before {
         content: '@';
     }
+    
+    .add-skill {
+        width: 30px;
+        height: 30px;
+        margin: 2.5px;
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: map-get($colors, primary);
+        
+        .button {
+            margin-top: -2.5px;
+            margin-left: -5.5px;
+        }
+    }
 }
