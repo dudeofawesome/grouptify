@@ -1,11 +1,13 @@
 import {Page, IonicApp, NavParams, ViewController, Modal} from 'ionic-angular';
 
-import {GettingStartedPage} from '../getting-started/getting-started';
+import {MainPage} from '../main/main';
 
 import {Chip} from '../../components/chip/chip';
 
 import {GrouptifyService} from '../../models/GrouptifyService';
 import {GithubService} from '../../models/GithubService';
+
+import {SML} from './sml';
 
 @Page({
     templateUrl: 'build/pages/register/register.html',
@@ -15,13 +17,14 @@ import {GithubService} from '../../models/GithubService';
 export class RegisterPage {
     public name: string = "";
     public email: string = "";
+    public password: string = "";
     public github: string = "";
     public languages: Array<{language: string; projects: number}> = [];
     
     constructor(private app: IonicApp, githubService: GithubService) {
         
     }
-    
+
     private queryTimeout;
     searchGithub (username: string) {
         if (this.queryTimeout) {
@@ -32,14 +35,29 @@ export class RegisterPage {
             if (username && username != "") {
                 GithubService.getUsedLanguages(username).then((languages) => {
                     this.languages.splice(0, this.languages.length);
+
                     for (let i in languages) {
-                        if (this.languages.length < 5 && i !== "null") {
+                        if (i !== "null") {
                             this.languages.push({language: i, projects: languages[i]});
                         }
                     }
+                    
+                    let langArray = [];
+                    this.languages.forEach((lang) => {
+                        langArray.push(lang.language);
+                    })
+                    let sml = new SML();
+                    let langOut = sml.recommendation(langArray);
+                    langOut.forEach((lang) => {
+                        this.languages.push({language: lang, projects: 3});
+                    })
+                    
                     this.languages.sort((a, b) => {
                         return b.projects - a.projects;
                     });
+                    if (this.languages.length >= 10) {
+                        this.languages.splice(10, this.languages.length - 10);
+                    }
                     console.log(languages);
                 });
             }
@@ -65,8 +83,21 @@ export class RegisterPage {
     }
     
     createAccount () {
-        let nav = this.app.getComponent('nav');
-        nav.setRoot(GettingStartedPage);
+        let languages: Array<string> = [];
+        this.languages.forEach((language) => {
+            languages.push(language.language);
+        });
+        GrouptifyService.createAccount(this.email, this.password, this.email, languages).then(() => {
+            let nav = this.app.getComponent('nav');
+            nav.setRoot(MainPage);
+        });
+    }
+    
+    loginHack () {
+        GrouptifyService.authenticate("louis@orleans.io", "password").then(() => {
+            let nav = this.app.getComponent('nav');
+            nav.setRoot(MainPage);
+        });
     }
 }
 

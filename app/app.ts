@@ -1,7 +1,7 @@
 import {App, IonicApp, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 
-import {GettingStartedPage} from './pages/getting-started/getting-started';
+import {MainPage} from './pages/main/main';
 import {ListPage} from './pages/list/list';
 import {RegisterPage} from './pages/register/register';
 
@@ -22,7 +22,7 @@ class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Projects', component: GettingStartedPage },
+      { title: 'Projects', component: MainPage },
       { title: 'Account', component: ListPage }
     ];
 

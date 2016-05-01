@@ -1,0 +1,13 @@
+<ion-card (click)="onclick()" (touchstart)="dragStart($event); mouseDown = true;" (touchmove)="dragging($event)" (touchend)="dragStop($event); mouseDown = false;">
+    <ion-card-content>
+        <ion-card-title>
+            {{project.name}}
+        </ion-card-title>
+        <div class="chips no-remove">
+            <chip *ngFor="#skill of project.skills; #i=index" [text]="skill"></chip>
+        </div>
+        <p>
+            {{project.description}}
+        </p>
+    </ion-card-content>
+</ion-card>

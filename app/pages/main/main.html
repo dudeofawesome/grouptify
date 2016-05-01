@@ -1,0 +1,12 @@
+
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Projects</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="main" scroll="false" style="overflow: hidden;">
+    <project-swipe-card *ngFor="#project of projects; #i=index" (swiped)="onSwipe(i, $event)" [project]="project"></project-swipe-card>
+</ion-content>

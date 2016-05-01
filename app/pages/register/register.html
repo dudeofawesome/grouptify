@@ -1,6 +1,6 @@
 
 <ion-navbar *navbar>
-  <ion-title>Register</ion-title>
+  <ion-title (click)="loginHack()">Register</ion-title>
 </ion-navbar>
 
 
@@ -8,11 +8,15 @@
     <ion-list>
         <ion-item>
             <ion-label floating>Name</ion-label>
-            <ion-input type="text" [model]="name" required autofocus></ion-input>
+            <ion-input type="text" [(ngModel)]="name" required autofocus></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input type="email" [model]="email" required></ion-input>
+            <ion-input type="email" [(ngModel)]="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password" required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Github</ion-label>

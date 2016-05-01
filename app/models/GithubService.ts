@@ -4,10 +4,14 @@ import {Http} from 'angular2/http';
 @Injectable()
 export class GithubService {
     private static instance: GithubService;
-    private static http: Http;
+    // screwit
+    public static http: Http;
 
     constructor(@Inject(Http) _http: Http) {
-        GithubService.http = _http;
+        if (!GithubService.http) {
+            GithubService.http = _http;
+        }
+
         if (!GithubService.instance) {
             GithubService.instance = this;
         }

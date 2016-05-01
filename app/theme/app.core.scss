@@ -7,11 +7,12 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
-@import "../pages/getting-started/getting-started";
+@import "../pages/main/main";
 @import "../pages/list/list";
 @import "../pages/register/register";
 
 @import "../components/swipe-card/swipe-card";
+@import "../components/project-swipe-card/project-swipe-card";
 @import "../components/chip/chip";
 
 .chips {
@@ -19,4 +20,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
+
+    &.no-remove {
+        chip {
+            padding-right: 15px;
+
+            button {
+                display: none;
+            }
+        }
+    }
 }
