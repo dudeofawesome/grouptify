@@ -42,7 +42,7 @@ export class ProjectSwipeCard {
                 let distance = Math.sqrt(Math.pow(this.position.x, 2) + Math.pow(this.position.y, 2));
                 let rad = Math.atan2(this.position.y, this.position.x);
                 if (this.swipedState !== 0) {
-                    let speed = 10;
+                    let speed = 20;
                     this.position.x += speed * this.swipedState;
                     if (Math.abs(this.position.x) > this.el.nativeElement.offsetWidth) {
                         this.offscreen.emit("");

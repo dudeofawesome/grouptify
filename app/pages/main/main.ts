@@ -17,15 +17,17 @@ export class MainPage {
         this.getMoreProjects();
     }
     
-    onSwipe (index, ev) {
-        console.log(index, ev);
+    onSwipe (ev) {
+        console.log(ev);
         GrouptifyService.swipe(ev.id, ev.dir);
-        
-        this.projects.splice(index, 1);
-        
+
         if (this.projects.length <= 2) {
             this.getMoreProjects();
         }
+    }
+    
+    onOffScreen (index) {
+        this.projects.splice(index, 1);
     }
     
     getMoreProjects () {

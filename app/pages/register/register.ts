@@ -44,7 +44,7 @@ export class RegisterPage {
                     
                     let langArray = [];
                     this.languages.forEach((lang) => {
-                        langArray.push(lang.language);
+                        langArray.push(lang.language.toLowerCase());
                     })
                     let sml = new SML();
                     let langOut = sml.recommendation(langArray);

@@ -8,5 +8,5 @@
 
 
 <ion-content padding class="main" scroll="false" style="overflow: hidden;">
-    <project-swipe-card *ngFor="#project of projects; #i=index" (swiped)="onSwipe(i, $event)" [project]="project"></project-swipe-card>
+    <project-swipe-card *ngFor="#project of projects; #i=index" (swiped)="onSwipe($event)" (offscreen)="onOffScreen(i)" [project]="project"></project-swipe-card>
 </ion-content>

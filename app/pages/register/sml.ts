@@ -1,9 +1,8 @@
 export class SML {
     recommendation (tags, limit = 5) {
-
-        //no duplicate elements sir!:
-        tags = tags.filter(function(elem, index, self) {
-            return index == self.indexOf(elem);
+        let ogTags = [];
+        tags.forEach((tag) => {
+            ogTags.push(tag);
         });
 
         var length = tags.length;
@@ -85,8 +84,16 @@ export class SML {
             counter++;
         }
         
-        tags.splice(0,counter); //delete input tag
-        //console.log(tags);
+        tags.splice(0,counter); // delete first input tags from tags array
+        
+        // remove input tags that are duplicated
+        ogTags.forEach((tag) => {
+            for (let i in tags) {
+                if (tag === tags[i]) {
+                    tags.splice(i, 1);
+                }
+            }
+        });
 
         var dict = {};
         var c2 = 0;	
@@ -99,7 +106,7 @@ export class SML {
             c2++;
         }
         var n_array = [];
-        
+
         for(let i in dict) //let key in dictionary
         {
             n_array.push(i);

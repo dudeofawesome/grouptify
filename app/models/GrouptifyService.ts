@@ -9,8 +9,8 @@ export class GrouptifyService {
     private static instance: GrouptifyService;
     private static http: Http;
     
-    private static URL: string = "https://grouptify.herokuapp.com";
-    // private static URL: string = "http://localhost:8080";
+    // private static URL: string = "https://grouptify.herokuapp.com";
+    private static URL: string = "http://localhost:8080";
     private static id: string = "";
     private static token: string = "";
 
